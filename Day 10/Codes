@@ -1,0 +1,266 @@
+//Insert One
+db.students.insertOne(
+
+ {
+    "Regno": "2021ict127",
+    "Name": "Amina",
+    "Age": 24,
+    "GPA": 3.9,
+    "Course": "IT",
+    "skills": ["Python", "MongoDB", "HTML"]
+  }
+)
+
+//Insert Many
+db.students.insertMany([
+ {
+    "regno": "2021ict128",
+    "name": "Ravi",
+    "age": 26,
+    "gpa": 3.5,
+    "Course": "AMC",
+    "skills": ["C++", "Java", "Git"]
+  },
+  {
+    "regno": "2021ict129",
+    "name": "Meera",
+    "age": 23,
+    "gpa": 3.8,
+    "Course": "IT",
+    "skills": ["SQL", "Excel", "PowerBI"]
+  },
+  {
+    "regno": "2021ict130",
+    "name": "Zayan",
+    "age": 25,
+    "gpa": 3.6,
+    "Course": "AMC",
+    "skills": ["React", "Node.js", "Docker"]
+  },
+  {
+    "regno": "2021ict131",
+    "name": "Manoj",
+    "age": 22,
+    "gpa": 3.85,
+    "Course": "IT",
+    "skills": ["C#", "Unity", "CSS"]
+  }
+])
+
+//Find IT Students
+db.students.find({Course:"IT"});
+
+Output:
+{
+  _id: ObjectId('680e80f2e9d734f9b2022dbe'),
+  Regno: '2021ict127',
+  Name: 'Amina',
+  Age: 24,
+  GPA: 3.9,
+  Course: 'IT',
+  skills: [
+    'Python',
+    'MongoDB',
+    'HTML'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc0'),
+  regno: '2021ict129',
+  name: 'Meera',
+  age: 23,
+  gpa: 3.8,
+  Course: 'IT',
+  skills: [
+    'SQL',
+    'Excel',
+    'PowerBI'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc0'),
+  regno: '2021ict129',
+  name: 'Meera',
+  age: 23,
+  gpa: 3.8,
+  Course: 'IT',
+  skills: [
+    'SQL',
+    'Excel',
+    'PowerBI'
+  ]
+}
+
+//Find one IT student 
+db.students.findOne({Course:'IT'})
+
+{
+  _id: ObjectId('680e80f2e9d734f9b2022dbe'),
+  Regno: '2021ict127',
+  Name: 'Amina',
+  Age: 24,
+  GPA: 3.9,
+  Course: 'IT',
+  skills: [
+    'Python',
+    'MongoDB',
+    'HTML'
+  ]
+}
+
+//Find student age greater than 24
+db.students.find({Age:{$gte:24}})
+
+{
+  _id: ObjectId('680e80f2e9d734f9b2022dbe'),
+  Regno: '2021ict127',
+  Name: 'Amina',
+  Age: 24,
+  GPA: 3.9,
+  Course: 'IT',
+  skills: [
+    'Python',
+    'MongoDB',
+    'HTML'
+  ]
+}
+
+//All students arranged by their GPA in descending order (highest GPA first).
+db.students.find().sort({GPA:-1})
+{
+  _id: ObjectId('680e80f2e9d734f9b2022dbe'),
+  Regno: '2021ict127',
+  Name: 'Amina',
+  Age: 24,
+  GPA: 3.9,
+  Course: 'IT',
+  skills: [
+    'Python',
+    'MongoDB',
+    'HTML'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc2'),
+  regno: '2021ict131',
+  name: 'Manoj',
+  age: 22,
+  gpa: 3.85,
+  Course: 'IT',
+  skills: [
+    'C#',
+    'Unity',
+    'CSS'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc0'),
+  regno: '2021ict129',
+  name: 'Meera',
+  age: 23,
+  gpa: 3.8,
+  Course: 'IT',
+  skills: [
+    'SQL',
+    'Excel',
+    'PowerBI'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc1'),
+  regno: '2021ict130',
+  name: 'Zayan',
+  age: 25,
+  gpa: 3.6,
+  Course: 'AMC',
+  skills: [
+    'React',
+    'Node.js',
+    'Docker'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dbf'),
+  regno: '2021ict128',
+  name: 'Ravi',
+  age: 26,
+  gpa: 3.5,
+  Course: 'AMC',
+  skills: [
+    'C++',
+    'Java',
+    'Git'
+  ]
+}
+
+//Find IT Degree Students Sorted by GPA
+db.students.find({Course:"IT"}).sort({GPA:1})
+
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc0'),
+  regno: '2021ict129',
+  name: 'Meera',
+  age: 23,
+  gpa: 3.8,
+  Course: 'IT',
+  skills: [
+    'SQL',
+    'Excel',
+    'PowerBI'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc2'),
+  regno: '2021ict131',
+  name: 'Manoj',
+  age: 22,
+  gpa: 3.85,
+  Course: 'IT',
+  skills: [
+    'C#',
+    'Unity',
+    'CSS'
+  ]
+}
+{
+  _id: ObjectId('680e8254e9d734f9b2022dc2'),
+  regno: '2021ict131',
+  name: 'Manoj',
+  age: 22,
+  gpa: 3.85,
+  Course: 'IT',
+  skills: [
+    'C#',
+    'Unity',
+    'CSS'
+  ]
+}
+
+//Selects and shows only the name and age of each student.
+project		{Name:1,Age:1}
+
+//Shows the name and age of students but hides their _id field.
+project {Name:1,Age:1,_id:0}
+
+//This finds the student with registration number 2021ict127.
+{"Regno":"2021ict127"}
+
+//Finds students who have Java as one of their skills.
+{skills:{$in:[“Java”]}
+
+//Showa students who know either C++ or Git.
+{skills:{$in:["C++","Git"]}}
+
+//Finds students who do not have MongoDB as a skill.
+{skills:{$nin:[“MongoDB”]}
+
+//Finds students who are exactly 25 years old.
+{age:{$eq:25}}
+
+//Finds students whose age is greater than 25.
+{age:{$gt:25}}
+
+//Arranges students by age from youngest to oldest.
+sort{age:1}
+
+sort{age:-1}
